@@ -10,9 +10,11 @@ export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}
 export ICON=https://github.com/gopher64/gopher64/blob/main/data/icon/gopher64_256x256.png
 export DESKTOP=https://raw.githubusercontent.com/flathub/io.github.gopher64.gopher64/refs/heads/master/io.github.gopher64.gopher64.desktop
 export DEPLOY_VULKAN=1
+export DEPLOY_PULSE=1
 
 # Deploy dependencies
 quick-sharun ./AppDir/bin/*
+echo 'SDL_AUDIODRIVER=pulseaudio' >> ./AppDir/.env
 
 # Additional changes can be done in between here
 
