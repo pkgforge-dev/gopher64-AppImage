@@ -10,7 +10,13 @@ echo "---------------------------------------------------------------"
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
-get-debloated-pkgs --add-common --prefer-nano
+get-debloated-pkgs --add-common
+
+echo "Getting binary..."
+echo "---------------------------------------------------------------"
+BINARY=https://github.com/gopher64/gopher64/releases/latest/download/gopher64-linux-$ARCH
+mkdir -p ./AppDir/bin
+wget --retry-connrefused --tries=30 "$BINARY" -O ./AppDir/bin/gopher64
 
 # Comment this out if you need an AUR package
 #make-aur-package PACKAGENAME
